@@ -1,7 +1,7 @@
-import 'package:my_books/const/colors/app_colors.dart';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:my_books/const/colors/app_colors.dart';
 
 ///This class defines light theme and dark theme
 ///Here we used flex color scheme
@@ -9,8 +9,8 @@ class Themes {
   static ThemeData get theme => FlexThemeData.light(
         scheme: FlexScheme.gold,
         surfaceMode: FlexSurfaceMode.highScaffoldLowSurface,
-        primary: const Color(0xFFF9B72F), // Orange Yellow
-        secondary: const Color(0xFF5A05BA), // Violet
+        primary: AppColors.kprimaryColor,
+        secondary: AppColors.kprimaryColor,
         scaffoldBackground: AppColors.appWhite,
         appBarStyle: FlexAppBarStyle.background,
         appBarOpacity: 0.90,
@@ -44,10 +44,10 @@ class Themes {
   static ThemeData get darkTheme => FlexThemeData.dark(
         scheme: FlexScheme.deepBlue,
         surfaceMode: FlexSurfaceMode.highScaffoldLowSurface,
-        primary: const Color(0xFFF9B72F), // Orange Yellow
-        secondary: const Color(0xFF5A05BA), // Violet
-        primaryLightRef: const Color(0xFFF9B72F),
-        secondaryLightRef: const Color(0xFF5A05BA),
+        primary: AppColors.kprimaryColor,
+        secondary: AppColors.kprimaryColor,
+        primaryLightRef: AppColors.kprimaryColor,
+        secondaryLightRef: AppColors.kprimaryColor,
         scaffoldBackground: const Color(0xFF000000), // Black
         blendLevel: 15,
         appBarStyle: FlexAppBarStyle.background,

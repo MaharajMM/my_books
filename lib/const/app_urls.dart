@@ -6,5 +6,5 @@ class AppUrls {
   AppUrls._();
 
   static String baseUrl = Env.developmentBaseUrl;
-  static String loginUrl = "/api/login";
+  static String booksUrl = "/subjects/novel.json";
 }
