@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_books/const/colors/app_colors.dart';
 import 'package:my_books/data/model/my_books_model.dart';
 import 'package:my_books/features/books/view/widgets/count_widget.dart';
+import 'package:my_books/shared/widget/cache_image_network_widget.dart';
 
 class BookCard extends StatelessWidget {
   final Book book;
@@ -40,8 +41,8 @@ class BookCard extends StatelessWidget {
               children: [
                 Hero(
                   tag: 'book_cover_${book.ia}',
-                  child: Image.network(
-                    'https://covers.openlibrary.org/b/id/${book.coverId}-L.jpg',
+                  child: CacheNetworkImageWidget(
+                    imageUrl: 'https://covers.openlibrary.org/b/id/${book.coverId}-L.jpg',
                     height: 180,
                     width: double.infinity,
                     fit: BoxFit.cover,
