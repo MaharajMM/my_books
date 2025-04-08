@@ -4,25 +4,32 @@ import 'package:my_books/const/colors/app_colors.dart';
 import 'package:my_books/data/model/my_books_model.dart';
 import 'package:my_books/features/book_details/view/widgets/book_details_row.dart';
 import 'package:my_books/features/favourite/view/widgets/favourite_button.dart';
-import 'package:my_books/shared/widget/cache_image_network_widget.dart';
+import 'package:my_books/shared/widget/book_image_widget.dart';
 
 @RoutePage()
 class BookDetailsPage extends StatelessWidget {
   final Book book;
+  final bool isFromFavorite;
   const BookDetailsPage({
     super.key,
     required this.book,
+    this.isFromFavorite = false,
   });
 
   @override
   Widget build(BuildContext context) {
-    return BookDetailsView(book: book);
+    return BookDetailsView(book: book, isFromFavorite: isFromFavorite);
   }
 }
 
 class BookDetailsView extends StatelessWidget {
+  final bool isFromFavorite;
   final Book book;
-  const BookDetailsView({super.key, required this.book});
+  const BookDetailsView({
+    super.key,
+    required this.isFromFavorite,
+    required this.book,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -56,14 +63,10 @@ class BookDetailsView extends StatelessWidget {
               ),
             ],
             flexibleSpace: FlexibleSpaceBar(
-              background: Hero(
-                tag: 'book_cover_${book.ia}',
-                child: CacheNetworkImageWidget(
-                  imageUrl: 'https://covers.openlibrary.org/b/id/${book.coverId}-L.jpg',
-                  height: 180,
-                  width: double.infinity,
-                  fit: BoxFit.fill,
-                ),
+              background: BookImageWidget(
+                bookId: book.ia,
+                coverId: book.coverId ?? 0,
+                isFromFavorite: isFromFavorite,
               ),
             ),
           ),

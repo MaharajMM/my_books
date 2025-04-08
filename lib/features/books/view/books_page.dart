@@ -1,7 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:my_books/const/colors/app_colors.dart';
 import 'package:my_books/features/books/controller/books_pod.dart';
 import 'package:my_books/features/books/state/recipes_state.dart';
 import 'package:my_books/features/books/view/widgets/books_grid.dart';
@@ -50,7 +49,6 @@ class _BooksViewState extends ConsumerState<BooksView> {
     return Scaffold(
       backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        backgroundColor: AppColors.kprimaryColor.withValues(alpha: 0.1),
         title: const Text('MyBooks'),
       ),
       body: SafeArea(child: Consumer(

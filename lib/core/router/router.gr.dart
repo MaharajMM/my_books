@@ -22,12 +22,14 @@ class BookDetailsRoute extends _i5.PageRouteInfo<BookDetailsRouteArgs> {
   BookDetailsRoute({
     _i6.Key? key,
     required _i7.Book book,
+    bool isFromFavorite = false,
     List<_i5.PageRouteInfo>? children,
   }) : super(
           BookDetailsRoute.name,
           args: BookDetailsRouteArgs(
             key: key,
             book: book,
+            isFromFavorite: isFromFavorite,
           ),
           initialChildren: children,
         );
@@ -41,6 +43,7 @@ class BookDetailsRoute extends _i5.PageRouteInfo<BookDetailsRouteArgs> {
       return _i1.BookDetailsPage(
         key: args.key,
         book: args.book,
+        isFromFavorite: args.isFromFavorite,
       );
     },
   );
@@ -50,15 +53,18 @@ class BookDetailsRouteArgs {
   const BookDetailsRouteArgs({
     this.key,
     required this.book,
+    this.isFromFavorite = false,
   });
 
   final _i6.Key? key;
 
   final _i7.Book book;
 
+  final bool isFromFavorite;
+
   @override
   String toString() {
-    return 'BookDetailsRouteArgs{key: $key, book: $book}';
+    return 'BookDetailsRouteArgs{key: $key, book: $book, isFromFavorite: $isFromFavorite}';
   }
 }
 
