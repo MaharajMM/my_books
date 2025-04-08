@@ -1,10 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_books/core/router/router.gr.dart';
 import 'package:my_books/data/model/my_books_model.dart';
 import 'package:my_books/features/books/view/widgets/book_card.dart';
 
-class BooksGrid extends StatelessWidget {
+class BooksGrid extends ConsumerWidget {
   final List<Book> books;
   final bool showLoadingMore;
   final ScrollController scrollController;
@@ -16,7 +17,7 @@ class BooksGrid extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return GridView.builder(
       controller: scrollController,
       padding: const EdgeInsets.all(16),

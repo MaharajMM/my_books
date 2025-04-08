@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_books/const/colors/app_colors.dart';
 import 'package:my_books/data/model/my_books_model.dart';
 import 'package:my_books/features/books/view/widgets/count_widget.dart';
+import 'package:my_books/features/favourite/view/widgets/favourite_button.dart';
 import 'package:my_books/shared/widget/cache_image_network_widget.dart';
 
 class BookCard extends StatelessWidget {
@@ -47,6 +48,11 @@ class BookCard extends StatelessWidget {
                     width: double.infinity,
                     fit: BoxFit.cover,
                   ),
+                ),
+                Positioned(
+                  top: 8,
+                  right: 8,
+                  child: FavourriteButton(book: book),
                 ),
               ],
             ),

@@ -70,6 +70,7 @@ class Book {
   final bool? publicScan;
   final bool? hasFulltext;
   final Availability? availability;
+  final bool isFavorite;
 
   Book({
     this.key,
@@ -88,6 +89,7 @@ class Book {
     this.publicScan,
     this.hasFulltext,
     this.availability,
+    this.isFavorite = false,
   });
 
   Book copyWith({
@@ -107,6 +109,7 @@ class Book {
     bool? publicScan,
     bool? hasFulltext,
     Availability? availability,
+    bool? isFavorite,
   }) =>
       Book(
         key: key ?? this.key,
@@ -125,6 +128,7 @@ class Book {
         publicScan: publicScan ?? this.publicScan,
         hasFulltext: hasFulltext ?? this.hasFulltext,
         availability: availability ?? this.availability,
+        isFavorite: isFavorite ?? this.isFavorite,
       );
 
   factory Book.fromJson(String str) => Book.fromMap(json.decode(str));
@@ -153,6 +157,7 @@ class Book {
         hasFulltext: json["has_fulltext"],
         availability:
             json["availability"] == null ? null : Availability.fromMap(json["availability"]),
+        isFavorite: false,
       );
 
   Map<String, dynamic> toMap() => {

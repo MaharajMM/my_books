@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:my_books/const/colors/app_colors.dart';
 import 'package:my_books/data/model/my_books_model.dart';
 import 'package:my_books/features/book_details/view/widgets/book_details_row.dart';
+import 'package:my_books/features/favourite/view/widgets/favourite_button.dart';
 import 'package:my_books/shared/widget/cache_image_network_widget.dart';
 
 @RoutePage()
@@ -31,6 +32,7 @@ class BookDetailsView extends StatelessWidget {
           SliverAppBar(
             expandedHeight: 300,
             pinned: true,
+            leadingWidth: 50,
             leading: GestureDetector(
               onTap: () => context.maybePop(),
               child: Container(
@@ -42,20 +44,16 @@ class BookDetailsView extends StatelessWidget {
                 ),
                 child: Icon(
                   Icons.arrow_back_ios_new,
+                  size: 20,
                   color: AppColors.appWhite,
                 ),
               ),
             ),
             actions: [
-              // IconButton(
-              //   icon: Icon(
-              //     book.isFavorite ? Icons.favorite : Icons.favorite_border,
-              //     color: book.isFavorite ? Colors.red : null,
-              //   ),
-              //   onPressed: () {
-              //     // Toggle favorite status
-              //   },
-              // ),
+              Padding(
+                padding: const EdgeInsets.only(right: 16.0),
+                child: FavourriteButton(book: book),
+              ),
             ],
             flexibleSpace: FlexibleSpaceBar(
               background: Hero(
