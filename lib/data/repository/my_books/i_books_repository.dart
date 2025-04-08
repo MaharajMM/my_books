@@ -3,5 +3,8 @@ import 'package:my_books/data/model/my_books_model.dart';
 import 'package:my_books/shared/exception/base_exception.dart';
 
 abstract class IBooksRepository {
-  Future<Result<MyBooksModel, APIException>> getAllBooks();
+  Future<Result<MyBooksModel, APIException>> getAllBooks({
+    required int offset,
+    required int pageLimit,
+  });
 }

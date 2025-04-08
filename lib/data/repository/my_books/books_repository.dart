@@ -14,8 +14,14 @@ class BooksRepository implements IBooksRepository {
   });
 
   @override
-  Future<Result<MyBooksModel, APIException>> getAllBooks() async {
-    final result = await dio.get(AppUrls.booksUrl);
+  Future<Result<MyBooksModel, APIException>> getAllBooks({
+    required int offset,
+    required int pageLimit,
+  }) async {
+    final result = await dio.get(AppUrls.booksUrl, queryParameters: {
+      'offset': offset,
+      'limit': pageLimit,
+    });
     if (result.statusCode == 200 || result.statusCode == 201) {
       return Success(MyBooksModel.fromMap(result.data));
     } else {
