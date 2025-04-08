@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_books/const/colors/app_colors.dart';
 import 'package:my_books/data/model/my_books_model.dart';
+import 'package:my_books/features/books/view/widgets/count_widget.dart';
 
 class BookCard extends StatelessWidget {
   final Book book;
@@ -32,6 +33,7 @@ class BookCard extends StatelessWidget {
         ),
         clipBehavior: Clip.antiAlias,
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Stack(
@@ -47,49 +49,81 @@ class BookCard extends StatelessWidget {
                 ),
               ],
             ),
-            Padding(
-              padding: const EdgeInsets.all(12),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    book.title ?? 'Unknown Title',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 14,
-                    ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    book.authors?.join(', ') ?? 'Unknown Author',
-                    style: TextStyle(
-                      fontSize: 12,
-                      color: Colors.grey[600],
-                    ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  const SizedBox(height: 6),
-                  Row(
-                    children: [
-                      const Icon(
-                        Icons.star,
-                        color: Colors.amber,
-                        size: 16,
+            Flexible(
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Expanded(
+                      flex: 2,
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            book.title ?? 'Unknown Title',
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 14,
+                            ),
+                            maxLines: 2,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          const SizedBox(height: 4),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Icons.person,
+                                color: AppColors.grey400,
+                                size: 16,
+                              ),
+                              SizedBox(width: 4),
+                              Flexible(
+                                child: Text(
+                                  book.authors?.first.name ?? 'Unknown Author',
+                                  style: TextStyle(
+                                    fontSize: 12,
+                                    color: AppColors.grey600,
+                                  ),
+                                  maxLines: 2,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
                       ),
-                      const SizedBox(width: 4),
-                      Text(
-                        '${book.lendingEdition}',
-                        style: const TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.bold,
-                        ),
+                    ),
+                    const SizedBox(height: 8),
+                    Expanded(
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [
+                          CountWidget(
+                            icon: Icon(
+                              Icons.calendar_month,
+                              color: Colors.blue,
+                              size: 15,
+                            ),
+                            text: '${book.firstPublishYear ?? "Unknown"}',
+                          ),
+                          const SizedBox(width: 8),
+                          CountWidget(
+                            icon: Icon(
+                              Icons.menu_book,
+                              color: Colors.green,
+                              size: 15,
+                            ),
+                            text: '${book.editionCount ?? "Unknown"}',
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
