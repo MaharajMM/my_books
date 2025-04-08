@@ -105,51 +105,6 @@ class _BooksViewState extends ConsumerState<BooksView> {
               child: CircularProgressIndicator(),
             ),
           );
-          // return booksAsync.easyWhen(
-          //   data: (myBooksModel) {
-          //     final books = myBooksModel.works;
-          //     if (books != null && books.isNotEmpty) {
-          //       return GridView.builder(
-          //         padding: const EdgeInsets.all(16),
-          //         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          //           crossAxisCount: 2,
-          //           childAspectRatio: 0.6,
-          //           crossAxisSpacing: 16,
-          //           mainAxisSpacing: 16,
-          //         ),
-          //         itemCount: books.length,
-          //         itemBuilder: (context, index) {
-          //           return BookCard(
-          //             book: books[index],
-          //             onTap: () => context.pushRoute(BookDetailsRoute(book: books[index])),
-          //             onFavoriteToggle: () {},
-          //           );
-          //         },
-          //       );
-          //     } else {
-          //       return const Center(
-          //         child: Text('No books available'),
-          //       );
-          //     }
-          //   },
-          //   loadingWidget: () => const Center(
-          //     child: CircularProgressIndicator(),
-          //   ),
-          //   errorWidget: (error, stackTrace) => Center(
-          //     child: Column(
-          //       children: [
-          //         Text(
-          //           'Error: $error',
-          //           style: const TextStyle(color: AppColors.kErrorColor),
-          //         ),
-          //         ElevatedButton(
-          //           onPressed: () => ref.invalidate(booksProvider),
-          //           child: Text('Retry'),
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          // );
         },
       )),
     );

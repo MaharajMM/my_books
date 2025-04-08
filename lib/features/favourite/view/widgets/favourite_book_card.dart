@@ -21,7 +21,6 @@ class FavoriteBookCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
-      // height: 120,
       decoration: BoxDecoration(
         color: AppColors.appWhite,
         borderRadius: BorderRadius.circular(16),
