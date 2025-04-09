@@ -67,6 +67,7 @@ class BookDetailsView extends StatelessWidget {
                 bookId: book.ia,
                 coverId: book.coverId ?? 0,
                 isFromFavorite: isFromFavorite,
+                tagSuffix: isFromFavorite ? 'detail' : 'list',
               ),
             ),
           ),

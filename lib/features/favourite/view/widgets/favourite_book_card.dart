@@ -47,6 +47,8 @@ class FavoriteBookCard extends StatelessWidget {
                   coverId: book.coverId ?? 0,
                   height: 100,
                   width: 70,
+                  tagSuffix: 'fav',
+                  isFromFavorite: true,
                 ),
               ),
               const SizedBox(width: 16),

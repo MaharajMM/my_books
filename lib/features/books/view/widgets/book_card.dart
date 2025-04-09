@@ -40,7 +40,11 @@ class BookCard extends StatelessWidget {
           children: [
             Stack(
               children: [
-                BookImageWidget(bookId: book.ia, coverId: book.coverId ?? 0),
+                BookImageWidget(
+                  bookId: book.ia,
+                  coverId: book.coverId ?? 0,
+                  tagSuffix: 'list',
+                ),
                 Positioned(
                   top: 8,
                   right: 8,

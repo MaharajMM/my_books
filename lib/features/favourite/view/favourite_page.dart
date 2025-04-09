@@ -27,7 +27,7 @@ class FavouriteView extends StatelessWidget {
         ),
         body: Consumer(
           builder: (context, ref, child) {
-            final favoriteBooks = ref.watch(favoriteBooksProvider);
+            final favoriteBooks = ref.watch(favoriteBooksNotifierProvider);
             return favoriteBooks.isEmpty
                 ? const Center(
                     child: Column(

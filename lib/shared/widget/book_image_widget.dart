@@ -7,6 +7,7 @@ class BookImageWidget extends StatelessWidget {
   final bool isFromFavorite;
   final double? height;
   final double? width;
+  final String tagSuffix;
   const BookImageWidget({
     super.key,
     this.bookId,
@@ -14,10 +15,12 @@ class BookImageWidget extends StatelessWidget {
     this.isFromFavorite = false,
     this.height = 180,
     this.width,
+    this.tagSuffix = '',
   });
 
   @override
   Widget build(BuildContext context) {
+    final tag = 'book_cover_${bookId ?? coverId}_$tagSuffix';
     return isFromFavorite
         ? CacheNetworkImageWidget(
             imageUrl: 'https://covers.openlibrary.org/b/id/$coverId-L.jpg',
@@ -26,7 +29,7 @@ class BookImageWidget extends StatelessWidget {
             fit: BoxFit.cover,
           )
         : Hero(
-            tag: 'book_cover_$bookId',
+            tag: tag,
             child: CacheNetworkImageWidget(
               imageUrl: 'https://covers.openlibrary.org/b/id/$coverId-L.jpg',
               height: height,
