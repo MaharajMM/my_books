@@ -1,6 +1,6 @@
 {
-    "name": "new_ecommerce",
-    "short_name": "new_ecommerce",
+    "name": "my_books",
+    "short_name": "my_books",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
