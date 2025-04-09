@@ -67,7 +67,6 @@ class FavouriteView extends StatelessWidget {
                           book: book,
                           isFromFavorite: true,
                         )),
-                        onRemove: () => {},
                       );
                     },
                   );

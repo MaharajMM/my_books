@@ -37,7 +37,6 @@ class BooksGrid extends ConsumerWidget {
         return BookCard(
           book: books[index],
           onTap: () => context.pushRoute(BookDetailsRoute(book: books[index])),
-          onFavoriteToggle: () {},
         );
       },
     );

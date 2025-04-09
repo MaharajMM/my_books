@@ -8,13 +8,11 @@ import 'package:my_books/shared/widget/book_image_widget.dart';
 class BookCard extends StatelessWidget {
   final Book book;
   final VoidCallback onTap;
-  final VoidCallback onFavoriteToggle;
 
   const BookCard({
     super.key,
     required this.book,
     required this.onTap,
-    required this.onFavoriteToggle,
   });
 
   @override

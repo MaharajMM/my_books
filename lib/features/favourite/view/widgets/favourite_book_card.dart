@@ -8,13 +8,11 @@ import 'package:my_books/shared/widget/book_image_widget.dart';
 class FavoriteBookCard extends StatelessWidget {
   final Book book;
   final VoidCallback onTap;
-  final VoidCallback onRemove;
 
   const FavoriteBookCard({
     super.key,
     required this.book,
     required this.onTap,
-    required this.onRemove,
   });
 
   @override
