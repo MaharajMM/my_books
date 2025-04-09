@@ -302,14 +302,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.7.0"
-  custom_lint_builder:
-    dependency: transitive
-    description:
-      name: custom_lint_builder
-      sha256: "42cdc41994eeeddab0d7a722c7093ec52bd0761921eeb2cbdbf33d192a234759"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.7.0"
   custom_lint_core:
     dependency: transitive
     description:
@@ -438,14 +430,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.1"
-  fl_chart:
-    dependency: "direct main"
-    description:
-      name: fl_chart
-      sha256: "5276944c6ffc975ae796569a826c38a62d2abcf264e26b88fa6f482e107f4237"
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.70.2"
   flash:
     dependency: "direct main"
     description:
@@ -491,14 +475,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.6.0"
-  flutter_form_builder:
-    dependency: "direct main"
-    description:
-      name: flutter_form_builder
-      sha256: c278ef69b08957d484f83413f0e77b656a39b7a7bb4eb8a295da3a820ecc6545
-      url: "https://pub.dev"
-    source: hosted
-    version: "9.5.0"
   flutter_lints:
     dependency: "direct dev"
     description:
@@ -553,13 +529,13 @@ packages:
     source: hosted
     version: "1.1.2"
   flutter_secure_storage_web:
-    dependency: "direct overridden"
+    dependency: transitive
     description:
       name: flutter_secure_storage_web
-      sha256: "58cf99fe971f4481edd2ed887587b1220e80d212b6d097074492447adf58ba9a"
+      sha256: f4ebff989b4f07b2656fb16b47852c0aab9fed9b4ec1c70103368337bc1886a9
       url: "https://pub.dev"
     source: hosted
-    version: "2.0.0-beta.2"
+    version: "1.2.1"
   flutter_secure_storage_windows:
     dependency: transitive
     description:
@@ -586,14 +562,6 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  form_builder_validators:
-    dependency: "direct main"
-    description:
-      name: form_builder_validators
-      sha256: c61ed7b1deecf0e1ebe49e2fa79e3283937c5a21c7e48e3ed9856a4a14e1191a
-      url: "https://pub.dev"
-    source: hosted
-    version: "11.0.0"
   freezed_annotation:
     dependency: transitive
     description:
@@ -658,14 +626,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.0"
-  hotreloader:
-    dependency: transitive
-    description:
-      name: hotreloader
-      sha256: ed56fdc1f3a8ac924e717257621d09e9ec20e308ab6352a73a50a1d7a4d9158e
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.2.0"
   http:
     dependency: transitive
     description:
@@ -734,10 +694,10 @@ packages:
     dependency: transitive
     description:
       name: js
-      sha256: c1b2e9b5ea78c45e1a0788d29606ba27dc5f71f019f32ca5140f61ef071838cf
+      sha256: f2c445dce49627136094980615a031419f7f3eb393237e4ecd97ac15dea343f3
       url: "https://pub.dev"
     source: hosted
-    version: "0.7.1"
+    version: "0.6.7"
   json_annotation:
     dependency: transitive
     description:
@@ -891,7 +851,7 @@ packages:
     source: hosted
     version: "1.1.0"
   path_provider:
-    dependency: "direct main"
+    dependency: transitive
     description:
       name: path_provider
       sha256: "50c5dd5b6e1aaf6fb3a78b33f6aa3afca52bf903a8a5298f53101fdaee55bbcd"
@@ -1027,22 +987,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.6.1"
-  riverpod_analyzer_utils:
-    dependency: transitive
-    description:
-      name: riverpod_analyzer_utils
-      sha256: c6b8222b2b483cb87ae77ad147d6408f400c64f060df7a225b127f4afef4f8c8
-      url: "https://pub.dev"
-    source: hosted
-    version: "0.5.8"
-  riverpod_lint:
-    dependency: "direct dev"
-    description:
-      name: riverpod_lint
-      sha256: "83e4caa337a9840469b7b9bd8c2351ce85abad80f570d84146911b32086fbd99"
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.6.3"
   riverpod_test:
     dependency: "direct dev"
     description:
@@ -1416,14 +1360,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "4.2.1"
-  very_good_analysis:
-    dependency: "direct dev"
-    description:
-      name: very_good_analysis
-      sha256: "1fb637c0022034b1f19ea2acb42a3603cbd8314a470646a59a2fb01f5f3a8629"
-      url: "https://pub.dev"
-    source: hosted
-    version: "6.0.0"
   vm_service:
     dependency: transitive
     description:
@@ -1480,38 +1416,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.1"
-  webview_flutter:
-    dependency: "direct main"
-    description:
-      name: webview_flutter
-      sha256: "889a0a678e7c793c308c68739996227c9661590605e70b1f6cf6b9a6634f7aec"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.10.0"
-  webview_flutter_android:
-    dependency: transitive
-    description:
-      name: webview_flutter_android
-      sha256: "285cedfd9441267f6cca8843458620b5fda1af75b04f5818d0441acda5d7df19"
-      url: "https://pub.dev"
-    source: hosted
-    version: "4.1.0"
-  webview_flutter_platform_interface:
-    dependency: transitive
-    description:
-      name: webview_flutter_platform_interface
-      sha256: d937581d6e558908d7ae3dc1989c4f87b786891ab47bb9df7de548a151779d8d
-      url: "https://pub.dev"
-    source: hosted
-    version: "2.10.0"
-  webview_flutter_wkwebview:
-    dependency: transitive
-    description:
-      name: webview_flutter_wkwebview
-      sha256: b7e92f129482460951d96ef9a46b49db34bd2e1621685de26e9eaafd9674e7eb
-      url: "https://pub.dev"
-    source: hosted
-    version: "3.16.3"
   win32:
     dependency: transitive
     description:

@@ -4,9 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_books/const/colors/app_colors.dart';
 import 'package:my_books/data/model/my_books_model.dart';
 import 'package:my_books/features/favourite/controller/favourite_pod.dart';
-import 'package:velocity_x/velocity_x.dart';
+import 'package:my_books/shared/helper/global_helper.dart';
 
-class FavourriteButton extends StatelessWidget {
+class FavourriteButton extends StatefulWidget {
   final Book book;
   final bool isFavPage;
   const FavourriteButton({
@@ -16,19 +16,26 @@ class FavourriteButton extends StatelessWidget {
   });
 
   @override
+  State<FavourriteButton> createState() => _FavourriteButtonState();
+}
+
+class _FavourriteButtonState extends State<FavourriteButton> with GlobalHelper {
+  @override
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) {
         final favorites = ref.watch(favoriteBooksNotifierProvider);
-        final isFav = favorites.any((b) => b.key == book.key);
+        final isFav = favorites.any((b) => b.key == widget.book.key);
         return GestureDetector(
           onTap: () {
-            ref.read(favoriteBooksNotifierProvider.notifier).toggleFavorite(book);
+            ref.read(favoriteBooksNotifierProvider.notifier).toggleFavorite(widget.book);
             HapticFeedback.lightImpact();
             Feedback.forTap(context);
-            context.showToast(
-              msg: '${isFav ? 'Removed from' : 'Added to'} favorites',
-            );
+            if (isFav) {
+              showErrorSnack(child: Text('Removed from favorites'));
+            } else {
+              showSuccessSnack(child: Text('Added to favorites'));
+            }
           },
           child: Container(
             padding: const EdgeInsets.all(6),
@@ -39,7 +46,7 @@ class FavourriteButton extends StatelessWidget {
             child: Icon(
               isFav ? Icons.favorite : Icons.favorite_border,
               color: isFav ? Colors.red : Colors.black,
-              size: isFavPage ? 30 : 20,
+              size: widget.isFavPage ? 30 : 20,
             ),
           ),
         );

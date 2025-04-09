@@ -1,9 +1,9 @@
-import 'package:my_books/shared/api_client/dio/dio_client_provider.dart';
-import 'package:my_books/shared/pods/internet_checker_pod.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:internet_connection_checker_plus/internet_connection_checker_plus.dart';
-import 'package:velocity_x/velocity_x.dart';
+import 'package:my_books/const/colors/app_colors.dart';
+import 'package:my_books/shared/api_client/dio/dio_client_provider.dart';
+import 'package:my_books/shared/pods/internet_checker_pod.dart';
 
 ///No internet extension widget
 extension NoInternet on Widget {
@@ -38,7 +38,7 @@ class ConnectionMonitor extends StatelessWidget {
               right: 0.0,
               top: 0.0,
               child: AnimatedSize(
-                duration: 900.milliseconds,
+                duration: Duration(milliseconds: 900),
                 curve: Curves.fastOutSlowIn,
                 alignment: Alignment.topCenter,
                 child: DefaultNoInternetWidget(
@@ -100,40 +100,53 @@ class _DefaultNoInternetState extends ConsumerState<DefaultNoInternetWidget> {
           heightFactor: status == InternetStatus.disconnected ? 1.0 : 0.0,
           child: status == InternetStatus.disconnected
               ? ((widget.noInternetWidget) ??
-                      MaterialBanner(
-                        content: const Text(
-                          'No Internet Available',
-                          style: TextStyle(
-                            color: Colors.red,
+                  SafeArea(
+                    child: MaterialBanner(
+                      content: const Text(
+                        'No Internet Available',
+                        style: TextStyle(
+                          color: Colors.red,
+                        ),
+                      ),
+                      actions: [
+                        ElevatedButton(
+                          onPressed: () {
+                            ref.invalidate(internetCheckerNotifierPod);
+                          },
+                          child: const Text(
+                            'OK',
+                            key: ValueKey('OK_BUTTON'),
                           ),
                         ),
-                        actions: [
-                          ElevatedButton(
-                            onPressed: () {
-                              ref.invalidate(internetCheckerNotifierPod);
-                            },
-                            child: const Text(
-                              'OK',
-                              key: ValueKey('OK_BUTTON'),
-                            ),
-                          ),
-                        ],
-                      ))
-                  .safeArea()
+                      ],
+                    ),
+                  ))
               : const SizedBox.shrink(),
         );
       },
-      error: (error, stackTrace) => MaterialBanner(
-        content: Text("Unable to check internet due to $error").text.red500.make(),
-        actions: [
-          ElevatedButton(
-            onPressed: () {
-              ref.invalidate(internetCheckerNotifierPod);
-            },
-            child: const Text('Retry').text.red500.make(),
+      error: (error, stackTrace) => SafeArea(
+        child: MaterialBanner(
+          content: Text(
+            "Unable to check internet due to $error",
+            style: TextStyle(
+              color: AppColors.kErrorColor,
+            ),
           ),
-        ],
-      ).safeArea(),
+          actions: [
+            ElevatedButton(
+              onPressed: () {
+                ref.invalidate(internetCheckerNotifierPod);
+              },
+              child: const Text(
+                'Retry',
+                style: TextStyle(
+                  color: AppColors.kErrorColor,
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
       loading: () => const LinearProgressIndicator(),
     );
   }
